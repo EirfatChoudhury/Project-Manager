@@ -3,9 +3,50 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="inital-scale=1, width=device-width">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="/static/script.js" defer></script>
     </head>
 
-    <body>
-        <input type="date">
+    <body onload="renderCalendar()">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href=>To-do</a>
+        </div>
+        
+        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+        <div id="main">
+            <div class="calendar">
+                <div class="date-picker">
+                    <input type="date" onkeydown="return false" id="date-picker">
+                    <button onclick="renderCalendarFromDatePicker()">Go</button>
+                </div>
+    
+                <div class="month-year-header">
+                    <div class="month-year">
+                        <p id="month"></p>
+                        <p id="year"></p>
+                    </div>
+                    <div class="chevron">
+                        <i class="fa fa-chevron-left" onclick="decreaseMonth()"></i>
+                        <i class="fa fa-chevron-right" onclick="increaseMonth()"></i>
+                    </div>
+                </div>
+    
+                <div class="weeks-table">
+                    <table id="weeks-table-dates">
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
